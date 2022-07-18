@@ -1,0 +1,50 @@
+//-----------------------------------------------------------------------------
+//      EAGFOR.PYMEN
+//      Menu Python de edição gráfica carregado se o Editor Gráfico de Formas
+//      for chamado (menu EAGFOR.MEN).
+//      Formato do aruqivo:
+//      - Linhas começadas por "//" ou em branco são comentários.
+//      - Temos 3 seções de dados, declarados no formato [seção]:
+//              - [PYTHON] que contém a relação de módulos Python usados aqui.
+//              - [CMD] que contém a declaração das funções chamadas nos módulos.
+//              - [MENU] que declara um ou mais menus pop-up que entrarão na 
+//                       edição gráfica e cada comando e função associada.
+//-----------------------------------------------------------------------------
+//      Lista de programas Python usados.
+//      Cada nome corresponde a um arquivo pasta TQSW\EXEC\Python
+//
+[PYTHON]
+EAGALV.PY
+
+//-----------------------------------------------------------------------------
+//      Comandos chamados pelo editor. 
+//
+//      Formato:
+//      identificador_arbitrario, programa_PYTHON_com_a_função, nome_da_função_Python
+//      descrição do comando
+//
+[CMD]
+remove_graute,EAGALV.PY,remove_graute
+Remove Pontos de Graute
+
+insere_arm_vert,EAGALV.PY,insere_arm_vert
+Insere armaduras verticais nos grautes existentes
+
+
+//-----------------------------------------------------------------------------
+//        Menus que usam os comandos acima
+//        Formato:
+//           SUBMENU,nome_do_submenu
+//               MENUITEM, identificador_do_comando_da_seção_CMD, descrição_do_comando
+//               SEPARADOR (define linha separadora)
+//               SUBMENU,... (pode-se definir submenus debaixo de submenus)
+//                  MENUITEM, ...
+//               FIMSUBMENU (fecha o último submenu aberto)
+//           FIMSUBMENU (fecha o último submenu aberto)
+//
+[MENU]
+SUBMENU,BRGT AlvEst
+        MENUITEM,remove_graute,&Remove Pontos de Graute existentes
+        MENUITEM,insere_arm_vert,&Insere armaduras verticais nos grautes existentes
+FIMSUBMENU
+
